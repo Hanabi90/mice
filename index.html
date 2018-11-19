@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+      display: block;
+    }
+
+    body {
+      line-height: 1;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    blockquote,
+    q {
+      quotes: none;
+    }
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+      content: '';
+      content: none;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+
+    #bg {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      transition: 0.5s;
+      background-image: url('./img/texture.png');
+    }
+
+    section {
+      position: relative;
+      width: 100%;
+      margin: 10px auto;
+      height: 38px;
+    }
+
+    .flex-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .left {
+      margin-right: 10px;
+      min-width: 390px;
+    }
+
+    .right {
+      color: #fff;
+      line-height: 30px;
+      padding-left: 40px;
+      padding-right: 40px;
+      text-indent: 2em;
+    }
+
+    .header {
+      margin: 30px auto;
+    }
+
+    nav {
+      max-width: 1000px;
+      height: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    nav ul li {
+      height: 37px;
+      line-height: 37px;
+      list-style: none;
+      flex: 1;
+      text-align: center;
+      font-family: Lato, "Microsoft YaHei", sans-serif;
+      border: 1px dashed rgba(255, 255, 255, 0);
+      color: #fff;
+      padding: 10px 0 10px 0;
+      margin: -1px -5px -1px -1px;
+      cursor: pointer;
+      transition: all .2s;
+      -webkit-transition: all .2s;
+    }
+
+    nav ul li:hover {
+      /*border:1px dashed #fff;*/
+      background: rgba(255, 255, 255, .1);
+      height: 100%;
+    }
+
+    nav ul {
+      border: 4px solid #fff;
+      border-radius: 10px;
+      position: relative;
+      width: 100%;
+      padding: 0;
+      z-index: 100;
+      display: flex;
+      max-width: 1000px;
+      align-items: center;
+    }
+
+    nav ul li:nth-last-child(1) {
+      text-shadow: 1px 2px #22c3aa, 2px 4px #aee2d9;
+      position: absolute;
+      left: 0;
+      top: -1px;
+      background: #fff;
+      width: 25%;
+      z-index: -1;
+      transition: none;
+    }
+
+    .active {
+      color: rgba(55, 186, 177, 1);
+    }
+
+    /* 导航条结束 */
+    .pages {
+      /* background-color: rgba(0, 0, 0, 0.2);
+      transition: 0.5s;
+      background-image: url('./img/texture.png'); */
+      width: 1000px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .pages div {
+      height: 100%;
+    }
+
+
+
+    footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      color: #171717;
+      padding: 10px;
+    }
+
+    footer p {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bg">
+    <section class="header">
+      <nav>
+        <ul>
+          <li data-xcoord="0" class="active">关于我</li>
+          <li data-xcoord="25%">我的简历</li>
+          <li data-xcoord="50%">工作经历</li>
+          <li data-xcoord="75%">照片</li>
+          <li class="last"></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="pages">
+      <div class="section">
+        <div class="flex-box">
+          <div class="left">
+            <img src="./img/3.jpg" alt="" width="100%">
+          </div>
+          <div class="right">
+            　　<p class="test"></p>
+            　　<p>大家好，我叫xxx，诚如大家所见，我是一名男生，更是一个相对比较腼腆羞涩的男生。这就是我最真实的性格，而且这也是认识我的人都公认的。也就是说，我不善言谈，就连对待自己的至亲也是不够热情，常常在不知觉间，自己的冷漠在无情地充当着侩子手。</p>
+                <p style="transform: translateY(75px);"><img src="./img//signature.png" alt="" width="100%"></p>
+          </div>
+        </div>
+      </div>
+      <div class="section">Some 2</div>
+      <div class="section">Some 3</div>
+      <div class="section">Some 4</div>
+    </section>
+    <footer>
+      <p>© 2018 - Mice个人网站。 - mice.com </p>
+      <p>Powered by jquery & jquery-ui</p>
+      <p>designed&code by Mice</p>
+    </footer>
+  </div>
+</body>
+
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.ui.js"></script>
+<script src="./js/jquery.mousewheel.js"></script>
+<script>
+  $(function () {
+    var
+      ismoving = false,
+      pageIndex = 0;
+      var text = ''
+      setInterval(() => {
+        text+='阿'
+        $('.test').html(text)
+      }, 300);
+    function ulAnim(self) {
+      ismoving = true;
+      var xcoord = $(self).data("xcoord");
+      $("nav ul li.last").stop().animate({ marginLeft: xcoord }, 500, "easeInOutExpo", function () {
+        console.log('object1');
+        ismoving = false;
+      });
+      $(self).addClass("active");
+      $("nav ul li").not(self).removeClass("active");
+    }
+    function changeBgc(key) {
+      switch (key) {
+        case 0:
+          $("#bg").css({ backgroundColor: 'rgb(149, 74, 69)' })
+          break;
+        case 1:
+          $("#bg").css({ backgroundColor: 'rgb(169, 99, 96)' })
+          break;
+        case 2:
+          $("#bg").css({ backgroundColor: 'rgb(203, 64, 66)' })
+          break;
+        case 3:
+          $("#bg").css({ backgroundColor: 'rgb(215, 196, 187)' })
+          break;
+        default:
+          break;
+      }
+    }
+    $("nav ul li").click(function () {
+      if (ismoving) return
+      ismoving = true;
+      pageIndex = $(this).index()
+      $(".pages").animate({ scrollTop: 600 * pageIndex }, 500, 'easeInOutExpo', () => {
+        ismoving = false
+      });
+      changeBgc(pageIndex)
+      ulAnim(this)
+    });
+    $(window).on('mousewheel', function (event) {
+      if (ismoving) return
+      if (event.deltaY < 0) {
+        console.log('下');
+        if (pageIndex >= 3) return
+        pageIndex += 1
+        pageIndex = Math.abs(pageIndex % 4)
+
+      } else if (event.deltaY > 0) {
+        console.log('上');
+        if (pageIndex == 0) return
+        pageIndex -= 1
+        pageIndex = Math.abs(pageIndex % 4)
+      }
+      var activePage = $('.pages').children().eq(pageIndex)
+      ulAnim($('nav ul').children().eq(pageIndex))
+      changeBgc(pageIndex)
+      $(".pages").animate({ scrollTop: 600 * pageIndex }, 500, 'easeInOutExpo', () => {
+        ismoving = false
+      });
+      ismoving = true;
+    })
+
+  }); 
+</script>
