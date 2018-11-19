@@ -326,11 +326,16 @@
     var
       ismoving = false,
       pageIndex = 0;
+      var str = '大家好，我叫xxx，诚如大家所见，我是一名男生，更是一个相对比较腼腆羞涩的男生。这就是我最真实的性格，而且这也是认识我的人都公认的。也就是说，我不善言谈，就连对待自己的至亲也是不够热情，常常在不知觉间，自己的冷漠在无情地充当着侩子手。'
       var text = ''
-      setInterval(() => {
-        text+='阿'
+      var len = str.length-1;
+      var index = 0;
+      var timer = setInterval(() => {
+        if(index>=len){clearInterval(timer)}
+        text+=str[index]
         $('.test').html(text)
-      }, 300);
+        index++
+      }, 100);
     function ulAnim(self) {
       ismoving = true;
       var xcoord = $(self).data("xcoord");
