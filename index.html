@@ -659,13 +659,12 @@
     var
       ismoving = false,
       pageIndex = 0;
-    var str = ` <p>1. 熟悉LAMP、LNMP架构的组成，可以熟练构建其平台以部署企业应用</p>
-                <p>2. 熟练搭建及维护LINUX下DHCP、Samba、VSFTP、Aapche、DNS等服务</p>
-                <p>3. 熟练使用Cacti、Nagios、zabbix等监测软件</p>
-                <p>4. 熟练搭建MySQL、SQL Server、Oracle数据库、增删改查、MySQL主从复制读写分离</p>；
-                <p>5. 熟悉当下centos7 的安装与配，并且熟练操作iptables、,systemctld防火墙的配置</p>；
-                <p>6. 熟练搭建ESXI、Vcenter虚拟化平。/p>；
-                `
+    var str = `1. 熟悉LAMP、LNMP架构的组成，可以熟练构建其平台以部署企业应用；</br>
+  2. 熟练搭建及维护LINUX下DHCP、Samba、VSFTP、Aapche、DNS等服务；</br>
+  3. 熟练使用Cacti、Nagios、zabbix等监测软件；</br>
+  4. 熟练搭建MySQL、SQL Server、Oracle数据库、增删改查、MySQL主从复制读写分离；</br>
+  5. 熟悉当下centos7 的安装与配，并且熟练操作iptables、,systemctld防火墙的配置；</br>
+  6. 熟练搭建ESXI、Vcenter虚拟化平。`
     var text = ''
     var len = str.length - 1;
     var index = 0;
@@ -674,7 +673,7 @@
       text += str[index]
       $('.test').html(text)
       index++
-    }, 100);
+    }, 80);
     function ulAnim(self) {
       ismoving = true;
       var xcoord = $(self).data("xcoord");
