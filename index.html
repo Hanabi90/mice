@@ -168,6 +168,7 @@
       align-items: center;
       overflow: hidden;
       margin-bottom: 20px;
+      height: 100%;
     }
 
     .left {
@@ -181,10 +182,12 @@
       padding-left: 40px;
       padding-right: 40px;
       text-indent: 2em;
+      height: 100%;
+      position: relative;
     }
 
     .header {
-      margin: 30px auto;
+      margin: 20px auto;
     }
 
     nav {
@@ -256,7 +259,7 @@
       overflow: hidden;
     }
 
-    .pages div {
+    .pages .section{
       height: 100%;
     }
 
@@ -276,7 +279,7 @@
 
 
     /* sec2 */
-    .section.resume div.header {
+    .section div.header {
       height: 100px;
       width: 100%;
     }
@@ -293,7 +296,7 @@
     }
 
 
-    .resume .header>p {
+    .section .header>p {
       text-transform: uppercase;
       letter-spacing: .5vw;
       display: inline-block;
@@ -304,7 +307,7 @@
       text-align: center;
     }
 
-    .resume p span {
+    .section p span {
       font: 700 4em/1 "Oswald", sans-serif;
       letter-spacing: 0;
       display: block;
@@ -318,6 +321,10 @@
       -webkit-animation: aitf 80s linear infinite;
       -webkit-transform: translate3d(0, 0, 0);
       -webkit-backface-visibility: hidden;
+    }
+    .section.sec3 p span{
+      background: url('./img/anim1.png') repeat-y;
+      -webkit-background-clip: text;
     }
 
     @-webkit-keyframes aitf {
@@ -365,6 +372,10 @@
 
     .icon-box:nth-child(odd) {
       margin-right: 20px;
+      transition: 1s;
+      transition-delay: 0.2s;
+      transform: scale(0.3);
+      opacity: 0;
     }
 
     .resume-text {
@@ -373,11 +384,16 @@
       align-items: baseline;
       padding-left: 10px;
       padding-right: 10px;
+      max-width: 342px;
+      transition: 1s;
+      transition-delay: 1s;
+      opacity: 0;
     }
 
     .resume-text>h2 {
-      color: #b32c2bf0;
+      color: #ff4900;
       font-size: 3vw;
+      margin-bottom: 10px;
     }
     .resume-text>p{
       color: #fff;
@@ -385,7 +401,92 @@
     }
 
     .content {
+      display: flex;
+      flex-direction: column;
       margin-top: 20px;
+      height: 500px;
+      justify-content: space-around;
+    }
+    .sec3{
+      position: relative;
+    }
+    .experience{
+      content: '';
+      background-color: #fff;
+      width: 10px;
+      border-radius: 10px;
+      height: 72%;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      margin-left: -5px;
+    }
+    /* experience */
+    .experience .dot{
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -10px;
+      background-color: #ff5424;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+    .experience .dot:nth-child(1){
+      top: 15%;
+    }
+    .experience .dot .job{
+      position: absolute;
+      top: -76px;
+      left: 600px;
+      width: 400px;
+      line-height: 20px;
+      color: #Fff;
+      border-radius:20px;
+      padding: 10px;
+      transition: .5s all;
+      cursor: pointer;
+    }
+    .experience .dot .job:hover{
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    .experience .dot .job::after{
+      content: '';
+      position: absolute;
+      top: 82px;
+      left: -52px;
+      width: 48px;
+      height: 2px;
+      border-bottom-right-radius: 20%;
+      border-top-right-radius: 20%;
+      background: white;
+    }
+    .experience .dot:nth-child(2) .job::after{
+      left: 400px;
+      border-bottom-left-radius: 20%;
+      border-top-left-radius: 20%;
+    }
+    
+    .experience .dot:nth-child(2) .job{
+      left: -1000px;
+    }
+    
+    .experience .dot:nth-child(2){
+      top: 45%;
+    }
+    .experience .dot:nth-child(3){
+      top: 78%;
+    }
+
+    .test{
+      width: 520px;
+    }
+    .test2{
+      position: absolute;
+      bottom: 0;
+    }
+    .test2 img{
+      margin-left: -20px
     }
   </style>
 </head>
@@ -410,9 +511,8 @@
             <img src="./img/3.jpg" alt="" width="100%">
           </div>
           <div class="right">
-            　　<p class="test"></p>
-            　　<p>大家好，我叫xxx，诚如大家所见，我是一名男生，更是一个相对比较腼腆羞涩的男生。这就是我最真实的性格，而且这也是认识我的人都公认的。也就是说，我不善言谈，就连对待自己的至亲也是不够热情，常常在不知觉间，自己的冷漠在无情地充当着侩子手。</p>
-            <p style="transform: translateY(75px);"><img src="./img//signature.png" alt="" width="100%"></p>
+            <p class="test"></p>
+            <p class="test2"><img src="./img//signature.png" alt="" width="100%"></p>
           </div>
         </div>
       </div>
@@ -423,86 +523,124 @@
               专 业 技 能
             </span>
           </p>
-          <div class="content">
-
-            <div class="flex-box">
-              <div class="icon-box">
-                <a class="icon">
-                  <span></span>
-                </a>
-              </div>
-              <div class="resume-text flex-box">
-                <h2>Python</h2>
-                <p>精通shell/Python/Perl等1至2种编程语言
-                  熟练掌握常用数据结构和算法</p>
-              </div>
-              <div class="icon-box">
-                <a class="icon icon2">
-                  <span></span>
-                </a>
-              </div>
-              <div class="resume-text flex-box">
-                <h2>Linux</h2>
-                <p>精通shell/Python/Perl等1至2种编程语言
-                  熟练掌握常用数据结构和算法</p>
-              </div>
+        </div>
+        <div class="content">
+          <div class="flex-box">
+            <div class="icon-box">
+              <a class="icon">
+                <span></span>
+              </a>
             </div>
-
-            <div class="flex-box">
-              <div class="icon-box">
-                <a class="icon icon3">
-                  <span></span>
-                </a>
-              </div>
-              <div class="resume-text flex-box">
-                <h2>Docker</h2>
-                <p>精通shell/Python/Perl等1至2种编程语言
-                  熟练掌握常用数据结构和算法</p>
-              </div>
-              <div class="icon-box">
-                <a class="icon icon4">
-                  <span></span>
-                </a>
-              </div>
-              <div class="resume-text flex-box">
-                <h2>Mysql</h2>
-                <p>精通shell/Python/Perl等1至2种编程语言
-                  熟练掌握常用数据结构和算法</p>
-              </div>
+            <div class="resume-text flex-box">
+              <h2>Python</h2>
+              <p>精通Python,Javascript编程语言
+                熟练掌握常用数据结构和算法</p>
             </div>
-
-            <div class="flex-box">
-              <div class="icon-box">
-                <a class="icon icon5">
-                  <span></span>
-                </a>
-              </div>
-              <div class="resume-text flex-box">
-                <h2>HTML5</h2>
-                <p>精通shell/Python/Perl等1至2种编程语言
-                  熟练掌握常用数据结构和算法</p>
-              </div>
-              <div class="icon-box">
-                <a class="icon icon6">
-                  <span></span>
-                </a>
-              </div>
-              <div class="resume-text flex-box">
-                <h2>CSS3</h2>
-                <p>精通shell/Python/Perl等1至2种编程语言
-                  熟练掌握常用数据结构和算法</p>
-              </div>
+            <div class="icon-box">
+              <a class="icon icon2">
+                <span></span>
+              </a>
             </div>
+            <div class="resume-text flex-box">
+              <h2>Linux</h2>
+              <p>熟练搭建及维护LINUX下DHCP、Samba、VSFTP、Aapche、DNS等服务</p>
+            </div>
+          </div>
 
-            <!-- 精通shell/Python/Perl等1至2种编程语言
-            熟练掌握常用数据结构和算法，并能灵活运用
-            熟悉网络基础知识
-            深入理解Linux操作系统 -->
+          <div class="flex-box">
+            <div class="icon-box">
+              <a class="icon icon3">
+                <span></span>
+              </a>
+            </div>
+            <div class="resume-text flex-box">
+              <h2>Docker</h2>
+              <p>能熟练使用Docker、Kubernetes等容器管理工具,熟练使用Cacti、Nagios、zabbix等监测软件</p>
+            </div>
+            <div class="icon-box">
+              <a class="icon icon4">
+                <span></span>
+              </a>
+            </div>
+            <div class="resume-text flex-box">
+              <h2>Mysql</h2>
+              <p>熟练搭建MySQL、SQL Server、Oracle数据库、增删改查、MySQL主从复制读写分离；</p>
+            </div>
+          </div>
+
+          <div class="flex-box">
+            <div class="icon-box">
+              <a class="icon icon5">
+                <span></span>
+              </a>
+            </div>
+            <div class="resume-text flex-box">
+              <h2>HTML5</h2>
+              <p>精通shell/Python/Perl等1至2种编程语言
+                熟练掌握常用数据结构和算法</p>
+            </div>
+            <div class="icon-box">
+              <a class="icon icon6">
+                <span></span>
+              </a>
+            </div>
+            <div class="resume-text flex-box">
+              <h2>CSS3</h2>
+              <p>精通shell/Python/Perl等1至2种编程语言
+                熟练掌握常用数据结构和算法</p>
+            </div>
+          </div>
+
+          <!-- 精通shell/Python/Perl等1至2种编程语言
+          熟练掌握常用数据结构和算法，并能灵活运用
+          熟悉网络基础知识
+          深入理解Linux操作系统 -->
+        </div>
+      </div>
+      <div class="section sec3">
+        <div class="header">
+          <p>
+            <span>
+              工 作 经 历
+            </span>
+          </p>
+        </div>
+        <div class="experience">
+          <div class="dot">
+            <div class="job">
+              <p>时    间：2016年3月  --  至今</p>
+              <p>公    司：北京天龙科技有限公司</p>
+              <p>职    务：linux运维工程师</p>
+              <p>公司简介：互联网</p>
+              工作职责：主要负责公司linux服务器的日常维护与监控，及服务器的日志分析与监测，以及配置与维护紧急情况的处理，网络故障分析，负责系统平台上线及更新并进行系统新功能的测试 并编写测试相关文档。
+              离职原因：想出国发展
+            </div>
+          </div>
+          <div class="dot">
+              <div class="job">
+                  <p>时    间：2016年3月  --  至今</p>
+                  <p>公    司：北京天龙科技有限公司</p>
+                  <p>职    务：linux运维工程师</p>
+                  <p>公司简介：互联网</p>
+                  工作职责：主要负责公司linux服务器的日常维护与监控，及服务器的日志分析与监测，以及配置与维护紧急情况的处理，网络故障分析，负责系统平台上线及更新并进行系统新功能的测试 并编写测试相关文档。
+                  离职原因：想出国发展
+                </div>
+          </div>
+          <div class="dot">
+              <div class="job">
+                  <p>时    间：2016年3月  --  至今</p>
+                  <p>公    司：北京天龙科技有限公司</p>
+                  <p>职    务：linux运维工程师</p>
+                  <p>公司简介：互联网</p>
+                  工作职责：主要负责公司linux服务器的日常维护与监控，及服务器的日志分析与监测，以及配置与维护紧急情况的处理，网络故障分析，负责系统平台上线及更新并进行系统新功能的测试 并编写测试相关文档。
+                  离职原因：想出国发展
+                </div>
           </div>
         </div>
       </div>
-      <div class="section">Some 3</div>
-      <div class="section">Some 4</div>
+      <div class="section">
+        
+      </div>
     </section>
     <footer>
       <p>© 2018 - Mice个人网站。 - mice.com </p>
@@ -521,7 +659,13 @@
     var
       ismoving = false,
       pageIndex = 0;
-    var str = '大家好，我叫xxx，诚如大家所见，我是一名男生，更是一个相对比较腼腆羞涩的男生。这就是我最真实的性格，而且这也是认识我的人都公认的。也就是说，我不善言谈，就连对待自己的至亲也是不够热情，常常在不知觉间，自己的冷漠在无情地充当着侩子手。'
+    var str = ` <p>1. 熟悉LAMP、LNMP架构的组成，可以熟练构建其平台以部署企业应用</p>
+                <p>2. 熟练搭建及维护LINUX下DHCP、Samba、VSFTP、Aapche、DNS等服务</p>
+                <p>3. 熟练使用Cacti、Nagios、zabbix等监测软件</p>
+                <p>4. 熟练搭建MySQL、SQL Server、Oracle数据库、增删改查、MySQL主从复制读写分离</p>；
+                <p>5. 熟悉当下centos7 的安装与配，并且熟练操作iptables、,systemctld防火墙的配置</p>；
+                <p>6. 熟练搭建ESXI、Vcenter虚拟化平。/p>；
+                `
     var text = ''
     var len = str.length - 1;
     var index = 0;
@@ -544,10 +688,10 @@
     function changeBgc(key) {
       switch (key) {
         case 0:
-          $("#bg").css({ backgroundColor: 'rgb(149, 74, 69)' })
+          $("#bg").css({ backgroundColor: 'rgba(0, 0, 0, 0.2)' })
           break;
         case 1:
-          $("#bg").css({ backgroundColor: 'rgb(169, 99, 96)' })
+          $("#bg").css({ backgroundColor: 'rgb(138, 179, 105)' })
           break;
         case 2:
           $("#bg").css({ backgroundColor: 'rgb(203, 64, 66)' })
@@ -559,6 +703,30 @@
           break;
       }
     }
+    function resumeAnim(){
+      if(pageIndex==1){
+        $('.icon-box').each(function(index,el){
+          setTimeout(() => {
+            $(el).css("transform","scale(1)")
+            $(el).css("opacity","1")
+          }, index*500);
+        })
+        $('.resume-text').each(function(index,el){
+            setTimeout(() => {
+              $(el).css("opacity","1")
+            }, index*500);
+        })
+      }
+    }
+    function sec3Anim(){
+      if(pageIndex==2){
+        $('.job:eq(0),.job:eq(2)').animate({left:'75px'})
+        $('.job:eq(1)').animate({left:'-450px'})
+      }else{
+        $('.job:eq(0),.job:eq(2)').animate({left:'600px'},0.2)
+        $('.job:eq(1)').animate({left:'-1000px'},0.2)
+      }
+    }
     $("nav ul li").click(function () {
       if (ismoving) return
       ismoving = true;
@@ -566,6 +734,8 @@
       $(".pages").animate({ scrollTop: 600 * pageIndex }, 500, 'easeInOutExpo', () => {
         ismoving = false
       });
+      sec3Anim()
+      resumeAnim()
       changeBgc(pageIndex)
       ulAnim(this)
     });
@@ -586,6 +756,8 @@
       var activePage = $('.pages').children().eq(pageIndex)
       ulAnim($('nav ul').children().eq(pageIndex))
       changeBgc(pageIndex)
+      sec3Anim()
+      resumeAnim()
       $(".pages").animate({ scrollTop: 600 * pageIndex }, 500, 'easeInOutExpo', () => {
         ismoving = false
       });
